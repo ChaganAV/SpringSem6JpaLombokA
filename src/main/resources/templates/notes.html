@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Мои заметки</title>
+</head>
+<body>
+  <div th:switch="${notes}">
+    <h1>Заметки</h1>
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Заголовок</th>
+        <th>Описание</th>
+        <th>Дата</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="note : ${notes}">
+        <td th:text="${note.id}"></td>
+        <td th:text="${note.title}"></td>
+        <td th:text="${note.description}"></td>
+        <td th:data="${note.dateBegin}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <p><a href="/note-create">Создать заметку</a></p>
+</body>
+</html>
