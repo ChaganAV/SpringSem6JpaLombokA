@@ -30,8 +30,8 @@ public class NoteServiceImpl implements NoteService{
     }
 
     @Override
-    public Note updateNote(Long id, Note note) {
-        Note testNote = noteRepository.findById(id).orElse(null);
+    public Note updateNote(Note note) {
+        Note testNote = noteRepository.findById((long) note.getId()).orElse(null);
         testNote.setTitle(note.getTitle());
         testNote.setDescription(note.getDescription());
         return noteRepository.save(testNote);
